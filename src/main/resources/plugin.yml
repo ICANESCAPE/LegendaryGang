@@ -1,0 +1,4 @@
+name: Legendgang
+version: ${project.version}
+main: org.sct.legendgang.Legendgang
+description: a plugin that from sct created by alchemy and qnickx
