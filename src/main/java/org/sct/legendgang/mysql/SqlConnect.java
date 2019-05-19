@@ -69,13 +69,13 @@ public class SqlConnect {
             Class.forName("com.mysql.jdbc.Driver");
             ip = "jdbc:mysql://" + host + ":" + port + "/" + dbname + "?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
             String sql = "CREATE TABLE  IF NOT EXISTS `" + table + "` (\n" +
-                    "  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n" +
-                    "  `name` text,\n" +
-                    "  `owner` text,\n" +
+                    "`id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n" +
+                    "  `name` varchar(256) DEFAULT '',\n" +
+                    "  `owner` varchar(256) DEFAULT '',\n" +
                     "  `value` int(11) DEFAULT NULL,\n" +
                     "  `level` int(11) DEFAULT '0',\n" +
                     "  `money` int(11) DEFAULT NULL,\n" +
-                    "  `describe` text," +
+                    "  `describe` varchar(256) DEFAULT NULL," +
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
             connection = DriverManager.getConnection(ip, username, password);
@@ -222,9 +222,9 @@ public class SqlConnect {
      * @param gangName
      * @param value
      */
-    public void edit(String gangName, Object value) {
+    public void edit(String gangName, Object value, int amount) {
         PreparedStatement ps = null;
-        String sql = "UPDATE " + table + " SET " + value + " = " + value + " + " + value + " WHERE name = '" + gangName + "'";
+        String sql = "UPDATE " + table + " SET " + value + " = " + value + " + " + amount + " WHERE name = '" + gangName + "'";
         try {
             ps = this.connection.prepareStatement(sql);
             ps.executeUpdate();
@@ -241,10 +241,9 @@ public class SqlConnect {
      * @param level    工会等级
      * @param money    工会资金
      */
-    public void insert(String gangName, String owner, int level, int money) {
+    public void insert(String gangName, String owner, int level, int money, int value) {
         PreparedStatement ps = null;
-        int id = 0;
-        String sql = "INSERT INTO drawing VALUES(0, '" + gangName + "', '" + owner + "', 0, level, money, 无)";
+        String sql = "INSERT INTO " + table + " VALUES(0, '" + gangName +"', '"+owner+"', value, level, money);";
 
         try {
             ps = this.connection.prepareStatement(sql);

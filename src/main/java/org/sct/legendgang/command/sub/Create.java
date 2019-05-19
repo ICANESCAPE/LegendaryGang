@@ -1,6 +1,8 @@
 package org.sct.legendgang.command.sub;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.sct.legendgang.Gang;
 import org.sct.legendgang.command.SubCommand;
 
 /**

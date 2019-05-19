@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * @date 2019-05-17 19:52
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class UnionAdmin {
 

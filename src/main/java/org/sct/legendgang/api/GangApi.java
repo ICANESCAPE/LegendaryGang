@@ -42,8 +42,8 @@ public class GangApi {
      * @param gangName 工会名字
      * @param value 修改的数据
      */
-    public void addValue(String gangName, Object value) {
-        sql.edit(gangName, value);
+    public void addValue(String gangName, Object value, int amount) {
+        sql.edit(gangName, value, amount);
     }
 
     /**
@@ -77,7 +77,7 @@ public class GangApi {
      * @param initMoney 初始化金钱
      */
     public void createGang(String gangName, String owner, int initLevel, int initMoney) {
-        sql.insert(gangName, owner, initLevel, initMoney);
+        sql.insert(gangName, owner, initLevel, initMoney, 0);
     }
 
 

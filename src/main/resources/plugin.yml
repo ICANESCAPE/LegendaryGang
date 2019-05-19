@@ -1,4 +1,6 @@
 name: Gang
 version: ${project.version}
 main: org.sct.legendgang.Gang
-description: a plugin that from sct created by alchemy and qnickx
+commands:
+  lg:
+
