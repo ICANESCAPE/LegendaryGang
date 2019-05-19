@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author SCT_Alchemy
@@ -12,17 +13,14 @@ import java.util.List;
 
 public class BasicUtil {
 
-    public static String convert(String message) { return ChatColor.translateAlternateColorCodes('&', message); }
+    public static String convert(String message) {
+        return ChatColor.translateAlternateColorCodes('&', message);
+    }
 
     public static List<String> convert(List<String> msg) {
         List<String> converted = new ArrayList<>();
-        for (String key : msg) {
-            converted.add(convert(key));
-        }
+        msg.forEach(key -> converted.add(convert(key)));
         return converted;
     }
-
-
-
 
 }

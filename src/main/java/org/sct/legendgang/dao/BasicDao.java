@@ -47,7 +47,7 @@ public class BasicDao {
      */
     public static boolean isClose() {
         try {
-            if (connection != null &&
+            if (connection == null ||
                     connection.isClosed()) {
                 return true;
             } else {

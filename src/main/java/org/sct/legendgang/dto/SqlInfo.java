@@ -1,10 +1,8 @@
 package org.sct.legendgang.dto;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.sct.legendgang.Gang;
-import org.sct.legendgang.dao.BasicDao;
 
-import java.sql.Connection;
+import org.sct.legendgang.Gang;
 
 /**
  * @author SCT_Alchemy
@@ -26,8 +24,5 @@ public class SqlInfo {
     public static String table = config.getString("Mysql.table");
 
     public static String dbase = config.getString("Mysql.database");
-
-    public static Connection connection = BasicDao.getConnection();
-
 
 }
