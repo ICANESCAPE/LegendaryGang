@@ -18,7 +18,7 @@ import java.util.List;
  * mysql部分
  */
 
-public class Sql {
+public class SqlConnect {
 
     private static FileConfiguration config = Gang.getInstance().getConfig();
 
@@ -39,9 +39,9 @@ public class Sql {
     @Getter
     private String ip;
 
-    public Sql() { }
+    public SqlConnect() { }
 
-    public Sql(String host, int port, String dbname, String username, String password, String table) {
+    public SqlConnect(String host, int port, String dbname, String username, String password, String table) {
         if (!loadDriver()) {
             System.out.println("驱动获取失败");
             return;
