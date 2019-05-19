@@ -22,6 +22,7 @@ public class BasicDao {
 
     /**
      * 获取链接信息
+     *
      * @return connection
      */
     public static Connection getConnection() {
@@ -43,6 +44,7 @@ public class BasicDao {
 
     /**
      * 是否关闭连接
+     *
      * @return 关闭/未关闭
      */
     public static boolean isClose() {
