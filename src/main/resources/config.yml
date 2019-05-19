@@ -1,0 +1,7 @@
+Mysql:
+  user: root
+  passcode: root
+  database: mc_data
+  host: localhost
+  port: 3306
+  table: Gang

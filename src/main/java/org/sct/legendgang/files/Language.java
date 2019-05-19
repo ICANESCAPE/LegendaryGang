@@ -6,5 +6,5 @@ package org.sct.legendgang.files;
  * 语言文件
  */
 public class Language {
-    
+
 }
