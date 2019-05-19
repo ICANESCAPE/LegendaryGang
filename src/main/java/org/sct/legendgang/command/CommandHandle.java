@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class CommandHandle implements CommandExecutor  {
 
-    protected static final String ila = "lg";
+    protected static final String LG = "lg";
     private Map<String, SubCommand> subCommandMap = Maps.newHashMap();
 
     public CommandHandle() {
@@ -40,10 +40,10 @@ public class CommandHandle implements CommandExecutor  {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(ila.equalsIgnoreCase(cmd.getName())) {
+        if(LG.equalsIgnoreCase(cmd.getName())) {
             if(args.length == 0) {
                 if(!(sender instanceof Player)) {
-                   // subCommandMap.get("admin").execute(sender, args);
+                    subCommandMap.get("admin").execute(sender, args);
                     return true;
                 }
                 return true;
