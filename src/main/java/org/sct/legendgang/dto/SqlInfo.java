@@ -25,4 +25,5 @@ public class SqlInfo {
 
     public static String dbase = config.getString("Mysql.database");
 
+
 }
