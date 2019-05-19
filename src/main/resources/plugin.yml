@@ -2,5 +2,9 @@ name: Gang
 version: ${project.version}
 main: org.sct.legendgang.Gang
 commands:
-  lg:
+  legendgang:
+    description: the command for this plugin
+    usage: /lg <parameter>
+    aliases: lg
+
 
