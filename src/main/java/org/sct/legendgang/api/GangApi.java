@@ -78,7 +78,7 @@ public class GangApi {
      * @param initMoney 初始化金钱
      */
     public void createGang(String gangName, String owner, int initLevel, int initMoney) {
-        sql.insert(gangName, owner, initLevel, initMoney, 0);
+        sql.insert(gangName, owner, initLevel, initMoney, Gang.getGangManager().calculateValue(initLevel, Bukkit.getPlayer(owner)));
     }
 
 

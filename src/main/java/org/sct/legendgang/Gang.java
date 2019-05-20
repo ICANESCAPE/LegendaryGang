@@ -9,6 +9,7 @@ import org.sct.legendgang.api.GangApi;
 import org.sct.legendgang.command.CommandHandle;
 import org.sct.legendgang.dto.SqlInfo;
 import org.sct.legendgang.mysql.SqlConnect;
+import org.sct.legendgang.util.GangDataUtil;
 
 /**
  * @author alchemy, qnickx
@@ -22,12 +23,15 @@ public final class Gang extends JavaPlugin {
 
     @Getter private static SqlConnect sql;
 
+    @Getter private static GangDataUtil gangManager;
+
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("§e[传奇公会] §a传奇公会已加载！");
         instance = this;
         sql = new SqlConnect(SqlInfo.host, SqlInfo.port, SqlInfo.dbase, SqlInfo.user, SqlInfo.passcode, SqlInfo.table);
         api = new GangApi();
+        gangManager = new GangDataUtil();
         Bukkit.getPluginCommand("lg").setExecutor(new CommandHandle());
     }
 

@@ -1,6 +1,6 @@
 Mysql:
   user: root
-  passcode: Alchemy
+  passcode: root
   database: mc_nancheng
   host: localhost
   port: 3306
@@ -13,3 +13,7 @@ GangSetting:
   #%members% 公会成员
   #%ownerlevel% 会长等级
   value: (%level% * 2) + 5
+  #初始帮派等级
+  initLevel: 1
+  #初始帮派资金
+  initMoney: 100

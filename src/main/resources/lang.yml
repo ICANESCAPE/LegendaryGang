@@ -1,0 +1,13 @@
+Lang:
+  #这条是发送给全服的
+  createMessage: "&a%player% 创建了工会 %gang%"
+  #title和subtitle用/分割，这条发送给创建者
+  createTitle: "&a%gang%/成功创建了"
+  #当物品不够时
+  NotEnough: "&c物品不够，无法创建"
+  #解散帮派，这条发给自己的Title,用/分割
+  dissmissGang: "&c你解散了自己的帮派/&a这行写啥呢"
+  #解散帮派后发送给全服的消息
+  dissmissMessage: "&c%player%的工会%gang%解散了，多年心血付之东流"
+  #帮派等级提升后发送的消息
+  gangLevelUp: "&a你的帮派提升了 1 级"
