@@ -1,4 +1,4 @@
-package org.sct.legendgang.dto;
+package org.sct.legendgang.dto.sub;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
