@@ -2,6 +2,7 @@ package org.sct.legendgang.util;
 
 import org.sct.legendgang.Gang;
 import org.sct.legendgang.api.GangApi;
+import org.sct.legendgang.enumeration.DataType;
 
 /**
  * @author SCT_Alchemy
@@ -14,7 +15,7 @@ public class GangDataUtil {
 
     public int calculateValue(String gangName) {
         String formula = Gang.getInstance().getConfig().getString("GangSetting.value")
-                .replace("%level%", (String) api.getValue(gangName, "level"))
+                .replace("%level%", (String) api.getValue(gangName, DataType.LEVEL))
                 .replace("%ownerlevel%",  String.valueOf(api.getOwner(gangName).getLevel()));
         return BasicUtil.calculate(formula);
     }

@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.sct.legendgang.Gang;
 import org.sct.legendgang.dao.BasicDao;
+import org.sct.legendgang.enumeration.DataType;
 import org.sct.legendgang.util.BasicUtil;
 
 import java.sql.*;
@@ -145,11 +146,11 @@ public class SqlConnect {
      * @param value    获取的数据
      * @return 取到的数据
      */
-    public Object getValue(String gangName, Object value) {
+    public Object getValue(String gangName, DataType value) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Object result = null;
-        String sql = "SELECT " + value + " FROM `" + table + "` WHERE name = '" + gangName + "'";
+        String sql = "SELECT " + value.getName() + " FROM `" + table + "` WHERE name = '" + gangName + "'";
         try {
             ps = this.connection.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -220,11 +221,11 @@ public class SqlConnect {
      * 插入数据
      *
      * @param gangName
-     * @param value
+     * @param type
      */
-    public void edit(String gangName, Object value, int amount) {
+    public void edit(String gangName, DataType type, int amount) {
         PreparedStatement ps = null;
-        String sql = "UPDATE " + table + " SET " + value + " = " + value + " + " + amount + " WHERE name = '" + gangName + "'";
+        String sql = "UPDATE " + table + " SET " + type.getName() + " = " + type.getName() + " + " + amount + " WHERE name = '" + gangName + "'";
         try {
             ps = this.connection.prepareStatement(sql);
             ps.executeUpdate();
@@ -289,9 +290,9 @@ public class SqlConnect {
      * @param value 不知道怎么写
      * @return List
      */
-    public List<String> getColumn(Object value) {
+    public List<String> getColumn(DataType value) {
         List<String> list = new ArrayList<>();
-        String sql = "SELECT " + value + " FROM `" + table + "`";
+        String sql = "SELECT " + value.getName() + " FROM `" + table + "`";
         ResultSet set = null;
         PreparedStatement pstm = null;
         try {

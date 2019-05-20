@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import org.sct.legendgang.Gang;
+import org.sct.legendgang.enumeration.DataType;
 import org.sct.legendgang.mysql.SqlConnect;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class GangApi {
      * @return 所有帮派名称集合
      */
     public List<String> getAllGangsName() {
-        return sql.getColumn("name");
+        return sql.getColumn(DataType.DISPALY);
     }
 
     /**
@@ -33,17 +34,17 @@ public class GangApi {
      * @return 工会会长的玩家对象
      */
     public Player getOwner(String gangName) {
-        return Bukkit.getPlayer((String) sql.getValue(gangName, "owner"));
+        return Bukkit.getPlayer((String) sql.getValue(gangName, DataType.OWNER));
     }
 
     /**
      * 对相关数据进行增加
      *
      * @param gangName 工会名字
-     * @param value 修改的数据
+     * @param type 修改的数据
      */
-    public void addValue(String gangName, Object value, int amount) {
-        sql.edit(gangName, value, amount);
+    public void addValue(String gangName, DataType type, int amount) {
+        sql.edit(gangName, type, amount);
     }
 
     /**
@@ -53,7 +54,7 @@ public class GangApi {
      * @param value 获取的数据
      * @return 结果
      */
-    public Object getValue(String gangName, Object value) {
+    public Object getValue(String gangName, DataType value) {
         return sql.getValue(gangName, value);
     }
 
