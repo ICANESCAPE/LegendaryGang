@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+
 import org.sct.legendgang.Gang;
 import org.sct.legendgang.dao.BasicDao;
 import org.sct.legendgang.enumeration.DataType;
@@ -23,22 +24,21 @@ public class SqlConnect {
 
     private static FileConfiguration config = Gang.getInstance().getConfig();
 
-    @Getter
-    private String host;
-    @Getter
-    private int port;
-    @Getter
-    private String dbname;
-    @Getter
-    private String username;
-    @Getter
-    private String password;
-    @Getter
-    private String table;
-    @Getter
-    private Connection connection;
-    @Getter
-    private String ip;
+    @Getter private String host;
+
+    @Getter private int port;
+
+    @Getter private String dbname;
+
+    @Getter private String username;
+
+    @Getter private String password;
+
+    @Getter private String table;
+
+    @Getter private Connection connection;
+
+    @Getter private String ip;
 
     public SqlConnect() { }
 
@@ -76,8 +76,9 @@ public class SqlConnect {
                     "  `value` int(11) DEFAULT NULL,\n" +
                     "  `level` int(11) DEFAULT '0',\n" +
                     "  `money` int(11) DEFAULT NULL,\n" +
-                    "  `describe` varchar(256) DEFAULT NULL," +
-                    "  PRIMARY KEY (`id`)\n" +
+                    "  `contribute` int(11) DEFAULT NULL,\n" +
+                    "  `member` longtext,\n" +
+                    "  PRIMARY KEY (`id`)" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
             connection = DriverManager.getConnection(ip, username, password);
             Statement statement = connection.createStatement();

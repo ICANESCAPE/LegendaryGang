@@ -14,6 +14,8 @@ public enum DataType {
     OWNER("owner"),
     LEVEL("level"),
     VALUE("value"),
+    CONTRIBUTE("contribute"),
+    MEMBER("member"),
     MONEY("money");
 
     @Getter String name;
@@ -21,4 +23,5 @@ public enum DataType {
     DataType(String column) {
         this.name = column;
     }
+
 }

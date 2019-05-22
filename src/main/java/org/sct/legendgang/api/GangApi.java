@@ -4,10 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import org.sct.legendgang.Gang;
+import org.sct.legendgang.cache.GangCache;
+import org.sct.legendgang.dto.Union;
 import org.sct.legendgang.enumeration.DataType;
 import org.sct.legendgang.mysql.SqlConnect;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author SCT_Alchemy
@@ -81,5 +84,13 @@ public class GangApi {
         sql.insert(gangName, owner, initLevel, initMoney, Gang.getGangManager().calculateValue(initLevel, Bukkit.getPlayer(owner)));
     }
 
+    /**
+     * 将所有工会都加载到缓存Map中
+     *
+     * @return Map<公会名字, 工会></>
+     */
+    public static Map<String, Union> loadAllGangs() {
+        return GangCache.loadAllGangs();
+    }
 
 }

@@ -6,6 +6,7 @@ Mysql:
   port: 3306
   table: Gang
 
+#工会设置
 GangSetting:
   #战斗力计算公式,该公式意思为 工会等级x2 + 5为战斗力总和
   #目前仅支持
