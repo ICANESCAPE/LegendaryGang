@@ -7,6 +7,7 @@ import org.sct.legendgang.Gang;
 import org.sct.legendgang.cache.GangCache;
 import org.sct.legendgang.dto.Union;
 import org.sct.legendgang.enumeration.DataType;
+import org.sct.legendgang.exception.DataUpdateException;
 import org.sct.legendgang.mysql.SqlConnect;
 
 import java.util.List;
@@ -44,9 +45,20 @@ public class GangApi {
      * 对相关数据进行增加
      *
      * @param gangName 工会名字
-     * @param type 修改的数据
+     * @param type     修改的数据
      */
     public void addValue(String gangName, DataType type, int amount) {
+        sql.add(gangName, type, amount);
+    }
+
+    /**
+     * 对相关数据进行修改
+     *
+     * @param gangName 工会名字
+     * @param type     修改数据类型
+     * @param amount   修改值
+     */
+    public void editValue(String gangName, DataType type, Object amount) {
         sql.edit(gangName, type, amount);
     }
 
@@ -54,7 +66,7 @@ public class GangApi {
      * 获取指定的数据
      *
      * @param gangName 工会名字
-     * @param value 获取的数据
+     * @param value    获取的数据
      * @return 结果
      */
     public Object getValue(String gangName, DataType value) {
@@ -75,8 +87,8 @@ public class GangApi {
     /**
      * 创建一个工会
      *
-     * @param gangName 工会名称
-     * @param owner 工会会长
+     * @param gangName  工会名称
+     * @param owner     工会会长
      * @param initLevel 初始化等级
      * @param initMoney 初始化金钱
      */
@@ -91,6 +103,21 @@ public class GangApi {
      */
     public static Map<String, Union> loadAllGangs() {
         return GangCache.loadAllGangs();
+    }
+
+    /**
+     * 更新工会数据，调用此方法会触发GangDataUpdateEvent事件
+     * 在修改数据的同时，数据将会在数据库中更新
+     * 次方法会返回更新数据后的Union对象
+     *
+     * @param union 工会对象
+     * @param type 更新数据类型
+     * @param amount 更新数据值
+     * @return 更新后的数据
+     * @throws DataUpdateException motherfucker!
+     */
+    public Union setUnionData(Union union, DataType type, Object amount) throws DataUpdateException{
+        return Gang.getGangManager().setGangData(union, type, amount);
     }
 
 }

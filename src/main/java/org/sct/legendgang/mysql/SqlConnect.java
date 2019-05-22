@@ -219,14 +219,32 @@ public class SqlConnect {
     }
 
     /**
-     * 插入数据
+     * 增删数据
      *
      * @param gangName
      * @param type
      */
-    public void edit(String gangName, DataType type, int amount) {
+    public void add(String gangName, DataType type, int amount) {
         PreparedStatement ps = null;
         String sql = "UPDATE " + table + " SET " + type.getName() + " = " + type.getName() + " + " + amount + " WHERE name = '" + gangName + "'";
+        try {
+            ps = this.connection.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("错误: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 修改数据
+     *
+     * @param gangName
+     * @param type
+     * @param amount
+     */
+    public void edit(String gangName, DataType type, Object amount) {
+        PreparedStatement ps = null;
+        String sql = "UPDATE " + table + " SET " + type.getName() + " = " + amount + " WHERE name = '" + gangName + "'";
         try {
             ps = this.connection.prepareStatement(sql);
             ps.executeUpdate();
