@@ -109,7 +109,7 @@ public class GangApi {
     /**
      * 更新工会数据，调用此方法会触发GangDataUpdateEvent事件
      * 在修改数据的同时，数据将会在数据库中更新
-     * 次方法会返回更新数据后的Union对象
+     * 此方法会返回更新数据后的Union对象
      *
      * @param union 工会对象
      * @param type 更新数据类型
