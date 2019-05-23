@@ -9,6 +9,7 @@ import org.sct.legendgang.dto.Union;
 import org.sct.legendgang.enumeration.DataType;
 import org.sct.legendgang.exception.DataUpdateException;
 import org.sct.legendgang.mysql.SqlConnect;
+import org.sct.legendgang.util.GangUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -118,6 +119,17 @@ public class GangApi {
      */
     public Union setUnionData(Union union, DataType type, Object amount) throws DataUpdateException{
         return Gang.getGangManager().setGangData(union, type, amount);
+    }
+
+    /**
+     * 给工会增加一名成员
+     *
+     * @param union 工会
+     * @param player 新增成员
+     * @return 修改数据后的工会对象
+     */
+    public Union addMember(Union union, Player player) {
+        return GangUtil.addMember(union, player);
     }
 
 }

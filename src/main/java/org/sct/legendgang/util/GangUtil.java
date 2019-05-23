@@ -1,8 +1,10 @@
 package org.sct.legendgang.util;
 
-import org.sct.legendgang.Gang;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.sct.legendgang.dto.Union;
-import org.sct.legendgang.dto.UnionData;
+import org.sct.legendgang.enumeration.DataType;
+import org.sct.legendgang.event.GangDataUpdateEvent;
 
 
 import java.util.List;
@@ -14,5 +16,11 @@ import java.util.List;
 
 public class GangUtil {
 
-
+    public static Union addMember(Union union, Player player) {
+        List<Player> players = union.getMembers();
+        players.add(player);
+        union.setMembers(players);
+        Bukkit.getPluginManager().callEvent(new GangDataUpdateEvent(union, DataType.MEMBER, StringUtil.convertToString(players)));
+        return union;
+    }
 }
