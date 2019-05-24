@@ -10,6 +10,7 @@ import org.sct.legendgang.command.CommandHandle;
 import org.sct.legendgang.dto.sub.SqlInfo;
 import org.sct.legendgang.mysql.SqlConnect;
 import org.sct.legendgang.util.GangDataUtil;
+import org.sct.legendgang.util.ItemUtil;
 
 /**
  * @author alchemy, qnickx
@@ -25,6 +26,8 @@ public final class Gang extends JavaPlugin {
 
     @Getter private static GangDataUtil gangManager;
 
+    @Getter private static ItemUtil itemManager;
+
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("§e[传奇公会] §a传奇公会已加载！");
@@ -32,6 +35,7 @@ public final class Gang extends JavaPlugin {
         sql = new SqlConnect(SqlInfo.host, SqlInfo.port, SqlInfo.dbase, SqlInfo.user, SqlInfo.passcode, SqlInfo.table);
         api = new GangApi();
         gangManager = new GangDataUtil();
+        itemManager = new ItemUtil();
         Bukkit.getPluginCommand("lg").setExecutor(new CommandHandle());
     }
 

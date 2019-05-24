@@ -20,6 +20,7 @@ import java.util.Map;
 public class GangCache {
 
     @Getter private static Map<String, Union> cache = new HashMap<>();
+
     private static GangApi api = Gang.getApi();
 
     public static Map<String, Union> loadAllGangs() {
