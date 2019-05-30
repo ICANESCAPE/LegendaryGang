@@ -1,0 +1,19 @@
+CreateItem:
+  display: "&c建帮令"
+  lore:
+    - "&c我怎么这么帅"
+  material: DIAMOND_SWORD
+  data: 1
+  amount: 1
+  unbreak: true
+
+
+AddationItem:
+  display: "&c进阶建帮令"
+  lore:
+    - "&c我怎么这么帅"
+  material: DIAMOND_SWORD
+  data: 1
+  amount: 1
+  unbreak: true
+

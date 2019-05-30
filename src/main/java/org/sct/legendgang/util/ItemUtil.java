@@ -1,11 +1,13 @@
 package org.sct.legendgang.util;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.sct.legendgang.cache.ItemCache;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ import java.util.List;
 
 @NoArgsConstructor
 public class ItemUtil {
+
+    @Getter private ItemCache itemCache = new ItemCache();
 
     public ItemStack buildItem(String dispaly, List<String> lore, String material, int data, int amount, List<ItemFlag> flags, boolean unbreak) {
         ItemStack item = new ItemStack(Material.getMaterial(material), amount, (short) data);

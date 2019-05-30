@@ -3,6 +3,7 @@ package org.sct.legendgang.enumeration;
 import lombok.Getter;
 
 import org.sct.legendgang.Gang;
+import org.sct.legendgang.files.Item;
 
 /**
  * @author SCT_Alchemy
@@ -11,10 +12,14 @@ import org.sct.legendgang.Gang;
 
 public enum  ItemType {
 
+
+
     /**
      * 工会道具的枚举类型
      */
-    CREATEITEM(Gang.getInstance().getConfig().getString("init"));
+    CREATEITEM(Item.getItemConfig().getString("CreateItem")),
+    ADDATIONITEM(Item.getItemConfig().getString("AddationItem"));
+
 
     @Getter String path;
 

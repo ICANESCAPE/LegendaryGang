@@ -6,8 +6,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.sct.legendgang.api.GangApi;
+import org.sct.legendgang.cache.ItemCache;
 import org.sct.legendgang.command.CommandHandle;
 import org.sct.legendgang.dto.sub.SqlInfo;
+import org.sct.legendgang.files.Item;
 import org.sct.legendgang.mysql.SqlConnect;
 import org.sct.legendgang.util.GangDataUtil;
 import org.sct.legendgang.util.ItemUtil;
@@ -36,6 +38,7 @@ public final class Gang extends JavaPlugin {
         api = new GangApi();
         gangManager = new GangDataUtil();
         itemManager = new ItemUtil();
+        Item.loadYml();
         Bukkit.getPluginCommand("lg").setExecutor(new CommandHandle());
     }
 
