@@ -127,7 +127,6 @@ public class SqlConnect {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql = "SELECT name FROM `" + this.table + "` WHERE name = '" + gangName + "'";
-
         try {
             ps = this.connection.prepareStatement(sql);
             rs = ps.executeQuery();

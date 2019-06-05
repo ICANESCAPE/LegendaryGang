@@ -2,6 +2,7 @@ package org.sct.legendgang.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
 import org.sct.legendgang.Gang;
 import org.sct.legendgang.api.GangApi;
 import org.sct.legendgang.enumeration.DataType;
@@ -50,5 +51,6 @@ public class StringUtil {
         }
         return builder.toString();
     }
+
 
 }
