@@ -1,10 +1,11 @@
 package org.sct.legendgang.files;
 
 import lombok.Getter;
-import org.bukkit.configuration.ConfigurationSection;
+
 import org.bukkit.configuration.file.YamlConfiguration;
+
 import org.sct.legendgang.Gang;
-import org.sct.legendgang.cache.ItemCache;
+
 
 import java.io.File;
 

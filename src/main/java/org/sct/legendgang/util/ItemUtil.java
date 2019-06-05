@@ -34,5 +34,15 @@ public class ItemUtil {
         return item;
     }
 
+    public ItemStack addLore(ItemStack item, String lore) {
+        ItemStack copy = item.clone();
+        ItemMeta meta = copy.getItemMeta();
+        List<String> lores = meta.getLore();
+        lores.add(BasicUtil.convert(lore));
+        meta.setLore(lores);
+        item.setItemMeta(meta);
+        return item;
+    }
+
 
 }

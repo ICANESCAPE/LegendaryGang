@@ -18,3 +18,5 @@ GangSetting:
   initLevel: 1
   #初始帮派资金
   initMoney: 100
+  #支持绑定
+  RuleLore: "&a已绑定"

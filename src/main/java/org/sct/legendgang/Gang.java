@@ -6,12 +6,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.sct.legendgang.api.GangApi;
-import org.sct.legendgang.cache.ItemCache;
 import org.sct.legendgang.command.CommandHandle;
 import org.sct.legendgang.dto.sub.SqlInfo;
 import org.sct.legendgang.files.Item;
 import org.sct.legendgang.mysql.SqlConnect;
 import org.sct.legendgang.util.GangDataUtil;
+import org.sct.legendgang.util.InventoryUtil;
 import org.sct.legendgang.util.ItemUtil;
 
 /**
@@ -30,6 +30,8 @@ public final class Gang extends JavaPlugin {
 
     @Getter private static ItemUtil itemManager;
 
+    @Getter private static InventoryUtil inventoryUtil;
+
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("§e[传奇公会] §a传奇公会已加载！");
@@ -38,6 +40,7 @@ public final class Gang extends JavaPlugin {
         api = new GangApi();
         gangManager = new GangDataUtil();
         itemManager = new ItemUtil();
+        inventoryUtil = new InventoryUtil();
         Item.loadYml();
         Bukkit.getPluginCommand("lg").setExecutor(new CommandHandle());
     }

@@ -2,6 +2,8 @@ package org.sct.legendgang.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.sct.legendgang.Gang;
 import org.sct.legendgang.dto.Union;
 import org.sct.legendgang.enumeration.DataType;
 import org.sct.legendgang.event.GangDataUpdateEvent;
